@@ -18,8 +18,9 @@ func main() {
 	go sub()
 	go sub()
 
-	for {
-		fmt.Println("Main Loop")
-		time.Sleep(200 * time.Microsecond)
-	}
+	// for {
+	// 	fmt.Println("Main Loop")
+	// 	time.Sleep(200 * time.Microsecond)
+	// }
+	time.Sleep(500 * time.Microsecond)
 }
