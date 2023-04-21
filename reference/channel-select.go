@@ -4,16 +4,6 @@ import (
 	"fmt"
 )
 
-func receiver(c chan int) {
-	fmt.Println("receiver")
-	for {
-		fmt.Println("Start")
-		i := <-c
-		fmt.Println(i)
-		fmt.Println("End")
-	}
-}
-
 // @desc チャネル-セレクト
 func main() {
 	ch1 := make(chan int, 2)
