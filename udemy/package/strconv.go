@@ -2,88 +2,89 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	"strings"
 )
 
-// @desc flag
+// @desc strings
 func main() {
 	/*
-		// 真偽値を文字列に変換する。
-		bt := true
-		fmt.Printf("%T\n", strconv.FormatBool(bt))
+		// 文字列を結合する。
+		s1 := strings.Join([]string{"A", "B", "C"}, ",")
+		s2 := strings.Join([]string{"A", "B", "C"}, "")
+		fmt.Println(s1, s2)
 	*/
 
 	/*
-		// 整数を文字列に変換する。
-		i := strconv.FormatInt(-100, 10)
-		fmt.Printf("%v, %T\n", i, i)
-		// 簡易的に変換する。
-		i2 := strconv.Itoa(100)
-		fmt.Printf("%v, %T\n", i2, i2)
+	   // 文字列に含まれる部分文字列を検索する。
+	   i1 := strings.Index("ABCDE", "A")
+	   i2 := strings.Index("ABCDE", "D")
+	   i0 := strings.Index("ABCDE", "X")
+	   fmt.Println(i1, i2, i0)
+
+	   i3 := strings.LastIndex("ABCDABCD", "BC")
+	   fmt.Println(i3)
+
+	   i4 := strings.IndexAny("VABCXB", "ABC")
+	   i5 := strings.LastIndexAny("VABCXB", "ABC")
+	   fmt.Println(i4, i5)
+
+	   b1 := strings.HasPrefix("ABC", "A")
+	   b2 := strings.HasSuffix("ABC", "C")
+	   fmt.Println(b1, b2)
+
+	   b3 := strings.Contains("ABC", "B")
+	   b4 := strings.ContainsAny("ABCDE", "BD")
+	   fmt.Println(b3, b4)
+
+	   i6 := strings.Count("ABCABC", "B")
+	   i7 := strings.Count("ABCABC", "") // 文字列の長さ+1
+	   fmt.Println(i6, i7)
 	*/
 
 	/*
-		// 不動小数点型を文字列に変換する。
-		fmt.Println(strconv.FormatFloat(123.456, 'E', -1, 64))
-		// 指数表現による文字列化（小数点以下２桁まで）
-		fmt.Println(strconv.FormatFloat(123.456, 'e', 2, 64))
-		// 実数表現による文字列化
-		fmt.Println(strconv.FormatFloat(123.456, 'f', -1, 64))
-		// 実数表現による文字列化（小数点以下２桁まで）
-		fmt.Println(strconv.FormatFloat(123.456, 'f', 2, 64))
-		// 指数部の大きさで変動する表現による文字列化
-		fmt.Println(strconv.FormatFloat(123.456, 'g', -1, 64))
-		fmt.Println(strconv.FormatFloat(123456789.123, 'f', -1, 64))
-		// 指数部の大きさで変動する表現による文字列化（仮数部全体が４桁まで）
-		fmt.Println(strconv.FormatFloat(123.456, 'g', 4, 64))
-		// 指数部の大きさで変動する表現による文字列化（仮数部全体が８桁まで）
-		fmt.Println(strconv.FormatFloat(123456789.123, 'G', 8, 64))
+		// 文字列を繰り返して結合する。
+		s3 := strings.Repeat("ABC", 4)
+		s4 := strings.Repeat("ABC", 0)
+		fmt.Println(s3, s4)
+	*/
+	/*
+		// 文字列を分割する。
+		s5 := strings.Replace("AAAAAA", "A", "B", 1)
+		s6 := strings.Replace("AAAAAA", "A", "B", -1)
+		fmt.Println(s5, s6)
 	*/
 
 	/*
-		// 文字列を真偽値に変換する。
-		// trueへ変換できる文字列
-		bt1, _ := strconv.ParseBool("true")
-		fmt.Printf("%v, %T\n", bt1, bt1)
-		bt2, _ := strconv.ParseBool("1")
-		bt3, _ := strconv.ParseBool("t")
-		bt4, _ := strconv.ParseBool("T")
-		bt5, _ := strconv.ParseBool("TRUE")
-		bt6, _ := strconv.ParseBool("True")
-		fmt.Println(bt2, bt3, bt4, bt5, bt6)
-
-		// falseへ変換できる文字列
-		// ２番目の戻り値はerror型なので、エラーハンドリングも可能
-		bf1, err := strconv.ParseBool("false")
-		if err != nil {
-			fmt.Println("Convert Error!!")
-		}
-		fmt.Printf("%v, %T\n", bf1, bf1)
-		bf2, _ := strconv.ParseBool("0")
-		bf3, _ := strconv.ParseBool("f")
-		bf4, _ := strconv.ParseBool("F")
-		bf5, _ := strconv.ParseBool("FALSE")
-		bf6, _ := strconv.ParseBool("False")
-		fmt.Println(bf2, bf
+		// 文字列を分割する。
+		s7 := strings.Split("A,B,C,D,E", ",")
+		fmt.Println(s7)
+		s8 := strings.SplitAfter("A,B,C,D,E", ",")
+		fmt.Println(s8)
+		s9 := strings.SplitN("A,B,C,D,E", ",", 4)
+		fmt.Println(s9)
+		s10 := strings.SplitAfterN("A,B,C,D,E", ",", 4)
+		fmt.Println(s10)
 	*/
 
 	/*
-		// 文字列を整数型に変換する。
-		i3, _ := strconv.ParseInt("12345", 10, 0)
-		fmt.Printf("%v, %T\n", i3, i3)
-		i4, _ := strconv.ParseInt("-1", 10, 0)
-		fmt.Printf("%v, %T\n", i4, i4)
-
-		// 簡易的に変換できる。
-		i10, _ := strconv.Atoi("123")
-		fmt.Printf("%v, %T\n", i10, i10)
+		// 大文字、小文字の変換
+		s11 := strings.ToLower("ABC")
+		s12 := strings.ToLower("E")
+		s13 := strings.ToUpper("abc")
+		s14 := strings.ToUpper("e")
+		fmt.Println(s11, s12, s13, s14)
 	*/
 
-	// 文字列を不動小数点型に変換する。
-	fl1, _ := strconv.ParseFloat("3.14", 64)
-	fl2, _ := strconv.ParseFloat(".2", 64)
-	fl3, _ := strconv.ParseFloat("-2", 64)
-	fl4, _ := strconv.ParseFloat("1.2345e8", 64)
-	fl5, _ := strconv.ParseFloat("1.2345E8", 64)
-	fmt.Println(fl1, fl2, fl3, fl4, fl5)
+	/*
+		// 文字列から空白を取り除く
+		s15 := strings.TrimSpace("    -    ABC    -    ")
+		s16 := strings.TrimSpace("\tABC\r\n")
+		s17 := strings.TrimSpace("　　　　ABC　　　　")
+		fmt.Println(s15, s16, s17)
+	*/
+
+	s18 := strings.Fields("a b c")
+	fmt.Println(s18)
+	fmt.Println(len(s18))
+	fmt.Println(s18[1])
 }
